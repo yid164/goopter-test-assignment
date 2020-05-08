@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0e2e4dc-042d-477d-b43b-731c49ec13ff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/getData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/PersonalPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +29,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1bahYMAMQydBsvGePntj4auVARr" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -36,12 +42,24 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/components/pages" />
+    </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -68,17 +86,60 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588876157381</updated>
-      <workItem from="1588876160277" duration="1509000" />
+      <workItem from="1588876160277" duration="15119000" />
+      <workItem from="1588900867480" duration="4908000" />
+      <workItem from="1588907320850" duration="4901000" />
+      <workItem from="1588912498276" duration="7608000" />
     </task>
+    <task id="LOCAL-00001" summary="make a login form, but no functions">
+      <created>1588877720502</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1588877720503</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="make a login form, but no functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="make a login form, but no functions" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="240" y="77" key="#ESLint" timestamp="1588913129951">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="240" y="77" key="#ESLint/0.23.1280.777@0.23.1280.777" timestamp="1588913129951" />
+    <state x="240" y="77" key="#Inspections" timestamp="1588910422809">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="240" y="77" key="#Inspections/0.23.1280.777@0.23.1280.777" timestamp="1588910422809" />
+    <state x="161" y="23" key="CommitChangelistDialog2" timestamp="1588877720191">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="161" y="23" key="CommitChangelistDialog2/0.23.1280.777@0.23.1280.777" timestamp="1588877720191" />
     <state x="459" y="312" key="Github.ShareDialog" timestamp="1588876596236">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state x="459" y="312" key="Github.ShareDialog/0.23.1280.777@0.23.1280.777" timestamp="1588876596236" />
+    <state width="1259" height="197" key="GridCell.Tab.0.bottom" timestamp="1588921667256">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state width="1259" height="197" key="GridCell.Tab.0.bottom/0.23.1280.777@0.23.1280.777" timestamp="1588921667256" />
+    <state width="1259" height="197" key="GridCell.Tab.0.center" timestamp="1588921667255">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state width="1259" height="197" key="GridCell.Tab.0.center/0.23.1280.777@0.23.1280.777" timestamp="1588921667255" />
+    <state width="1259" height="197" key="GridCell.Tab.0.left" timestamp="1588921667255">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state width="1259" height="197" key="GridCell.Tab.0.left/0.23.1280.777@0.23.1280.777" timestamp="1588921667255" />
+    <state width="1259" height="197" key="GridCell.Tab.0.right" timestamp="1588921667256">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state width="1259" height="197" key="GridCell.Tab.0.right/0.23.1280.777@0.23.1280.777" timestamp="1588921667256" />
   </component>
 </project>
