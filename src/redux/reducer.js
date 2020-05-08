@@ -1,3 +1,4 @@
+import {login} from '../api/getData'
 const defaultState = {
     auth: false,
     username: '',
@@ -32,7 +33,7 @@ export default (state = defaultState, action) => {
             newState.last_name = action.value;
             return newState;
         case 'login':
-            newState.auth = true;
+            newState.auth = login(newState.username, newState.password);
             return newState;
         case 'change_first_name':
             newState.first_name = action.value;

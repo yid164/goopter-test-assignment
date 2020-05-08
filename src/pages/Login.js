@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import  { Redirect } from 'react-router-dom'
+import {postTokenAndAccessSecret}from '../api/getData'
+
 
 const Login = (props) => {
     const { auth, username, password, usernameChange, passwordChange, handleClick } = props;
@@ -24,7 +26,7 @@ const Login = (props) => {
             </div>
         );
     }
-}
+};
 
 const mapStateToProps = (state) => {
     return {
@@ -32,7 +34,7 @@ const mapStateToProps = (state) => {
         username: state.username,
         password: state.password
     }
-}
+};
 
 
 const mapDispatchToProps = function(dispatch) {
@@ -51,12 +53,13 @@ const mapDispatchToProps = function(dispatch) {
             };
             dispatch(action)
         },
-        handleClick() {
+        handleClick(e) {
             const action = {
                 type: 'login'
             };
             dispatch(action);
-            console.log(window.history)
+
+
         }
     }
 }
