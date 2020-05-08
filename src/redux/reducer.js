@@ -1,5 +1,6 @@
 import {login} from '../api/getData'
-const defaultState = {
+
+let defaultState = {
     auth: false,
     username: '',
     password: '',
@@ -21,7 +22,7 @@ const defaultState = {
 };
 
 export default (state = defaultState, action) => {
-    const newState = JSON.parse(JSON.stringify(state));
+    let newState = JSON.parse(JSON.stringify(state));
     switch (action.type) {
         case 'change_username':
             newState.username = action.value;
@@ -34,6 +35,13 @@ export default (state = defaultState, action) => {
             return newState;
         case 'login':
             newState.auth = login(newState.username, newState.password);
+            //console.log(newState.auth)
+            // if(newState.auth){
+            //     console.log("GOOD");
+            // }else{
+            //     console.log("NOOO");
+            // }
+            //console.log(newState.auth)
             return newState;
         case 'change_first_name':
             newState.first_name = action.value;
@@ -85,31 +93,4 @@ export default (state = defaultState, action) => {
         default:
             return state;
     }
-    // if (action.type === 'change_username') {
-    //     newState.username = action.value;
-    //     return newState;
-    // } else if (action.type === 'change_password') {
-    //     newState.password = action.value;
-    //     return newState;
-    // } else if(action.type === 'change_last_name'){
-    //     newState.last_name = action.value;
-    //     return newState;
-    // } else if (action.type === 'login') {
-    //     // TODO: axios here, check the result
-    //     newState.auth = true;
-    //     return newState;
-    // } else if (action.type === 'change_first_name') {
-    //     newState.first_name = action.value;
-    //     return newState;
-    // } else if (action.type === 'change_nickname') {
-    //     newState.nickname = action.value;
-    //     return newState;
-    // } else if (action.type === 'update') {
-    //     // TODO: axios here, call post api to update
-    //     return newState;
-    // } else if (action.type === 'refresh') {
-    //     // TODO: axios here, use api call to refresh the firstname/nickname
-    //     return newState;
-    // }
-    // return state;
 }

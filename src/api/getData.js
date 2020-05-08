@@ -5,12 +5,13 @@ import request from "request"
 // const email = '7788758095@c.goopter.com';
 // const password = '20200506';
 
-const login_info = {
-    email: String,
-    password: String,
-    access_token: String,
-    access_key: String,
-    auth: Boolean,
+let login_info = {
+    email: '',
+    password: '',
+    access_token: '',
+    access_key: '',
+    auth: false,
+    RC: 0
 };
 
 const user_info = {
@@ -51,10 +52,34 @@ const request_get_info_date = {
     method: 'GET'
 };
 
+let getInformation = function(){
+    let token = {
+        key: login_info.access_key,
+        secret: login_info.access_token,
+    };
 
+    let data ={
 
+        url: 'https://api-qa.goopter.com/api/rest/v7/customerinfo',
+        method: 'GET',
+        data:
+            {
+                "data": {
+                    "email": login_info.email,
+                    "password": login_info.password
+                }
+            }
+    };
+    request({
+        url: 'https://api-qa.goopter.com/api/rest/v7/customerinfo',
+        method: 'GET',
+        json: oauth.authorize(data, token)
+    }, function(err, res, body) {
+        console.log(body)
+    })
+};
 
-function postTokenAndAccessSecret(email, password) {
+let passEmail = function(email, password) {
     let data = {
         url: 'https://api-qa.goopter.com/api/rest/v8/login',
         method: 'POST',
@@ -66,30 +91,44 @@ function postTokenAndAccessSecret(email, password) {
                 }
             }
     };
-    oauth.authorize(data, null);
+    login_info.email = email;
+    login_info.password = password;
     request({
         url: data.url,
         method: data.method,
         json: oauth.authorize(data, null),
-    }, function (err, res, body){
-        console.log(body);
+        }, function (err, res, body){
+        //console.log(body);
         let value = JSON.parse(JSON.stringify(body));
-        console.log(value.RC);
-        if(value.RC === '200'){
-            login_info.auth = true;
-            login_info.access_token = value.records.token;
-            login_info.access_key = value.records.secret;
-            return true;
+        if(value.RC === 200){
+            passingLogin(value);
         }else{
-            login_info.auth = false;
-            login_info.access_token = null;
-            return false;
+            console.log("no value");
         }
+
     });
 
+};
+
+function passingLogin (login_information) {
+    login_info.access_token = login_information.records.token;
+    login_info.access_key = login_information.records.secret;
+    login_info.RC = login_information.RC;
+    login_info.auth = true;
 }
 
-export const login = (username, password) =>postTokenAndAccessSecret;
+function isPassed(email, password) {
+    passEmail(email,password);
+    console.log(login_info);
+    if(login_info.RC === 200){
+        getInformation();
+        return true;
+    }else{
+        return false;
+    }
+}
+
+export const login = (u,p) => isPassed(u,p);
 
 
 
