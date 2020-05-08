@@ -11,7 +11,7 @@ const UpdateProfile = (props) => {
         bookmark_store, bookmarkStoreChange, bookmark_group_sale, bookmarkGroupSaleChange,bookmark_product, bookmarkProductChange,
         num_gift_cards, numGiftCardsChange,
         nicknameChange, firstNameChange, lastNameChange, phoneChange, phoneCountryCodeChange, currencyChange, pointsChange,
-        handleClick, handleRefresh } = props;
+        handleClick, handleLogOut } = props;
 
     const [form] = Form.useForm();
     const [formLayout] = useState('horizontal');
@@ -103,6 +103,7 @@ const UpdateProfile = (props) => {
                     </Form.Item>
                     <Form.Item {...buttonItemLayout}>
                         <Button type="primary" onClick={handleClick}>Submit</Button>
+                        <Button type="warning" onClick={handleLogOut}>Log Out </Button>
                     </Form.Item>
                 </Form>
             </div>
@@ -244,13 +245,14 @@ const mapDispatchToProps = function(dispatch) {
             };
             dispatch(action)
         },
-        handleRefresh() {
+        handleLogOut() {
             const action = {
                 type: 'refresh'
             };
-            dispatch(action)
+
+            dispatch(action);
         }
     }
-}
+};
 
 export default connect(mapStateToProps,mapDispatchToProps)(UpdateProfile);

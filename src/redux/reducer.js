@@ -34,7 +34,7 @@ export default (state = defaultState, action) => {
             newState.last_name = action.value;
             return newState;
         case 'login':
-            newState.auth = true;//login(newState.username, newState.password);
+            newState.auth = login(newState.username, newState.password);
             //console.log(newState.auth)
             // if(newState.auth){
             //     console.log("GOOD");
@@ -52,6 +52,7 @@ export default (state = defaultState, action) => {
         case 'update':
             return newState;
         case 'refresh':
+            newState.auth = false;
             return newState;
         case 'change_phone':
             newState.phone = action.value;

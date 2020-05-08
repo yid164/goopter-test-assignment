@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a0e2e4dc-042d-477d-b43b-731c49ec13ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/PersonalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PersonalPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducer.js" afterDir="false" />
     </list>
@@ -84,7 +82,7 @@
       <workItem from="1588876160277" duration="15119000" />
       <workItem from="1588900867480" duration="4908000" />
       <workItem from="1588907320850" duration="4901000" />
-      <workItem from="1588912498276" duration="28621000" />
+      <workItem from="1588912498276" duration="29044000" />
     </task>
     <task id="LOCAL-00001" summary="make a login form, but no functions">
       <created>1588877720502</created>
@@ -121,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588976584127</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Set up CSS">
+      <created>1588980402196</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1588980402196</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,7 +138,8 @@
     <MESSAGE value="Finished the form for personal info" />
     <MESSAGE value="Login succeed" />
     <MESSAGE value="Handled the login, but the API might have problem, I could not get the user information after I have the token and secret." />
-    <option name="LAST_COMMIT_MESSAGE" value="Handled the login, but the API might have problem, I could not get the user information after I have the token and secret." />
+    <MESSAGE value="Set up CSS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set up CSS" />
   </component>
   <component name="WindowStateProjectService">
     <state x="240" y="77" key="#ESLint" timestamp="1588913129951">
@@ -144,10 +150,10 @@
       <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state x="240" y="77" key="#Inspections/0.23.1280.777@0.23.1280.777" timestamp="1588910422809" />
-    <state x="161" y="23" width="957" height="777" key="CommitChangelistDialog2" timestamp="1588976583956">
+    <state x="161" y="23" width="957" height="777" key="CommitChangelistDialog2" timestamp="1588980401950">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state x="161" y="23" width="957" height="777" key="CommitChangelistDialog2/0.23.1280.777@0.23.1280.777" timestamp="1588976583956" />
+    <state x="161" y="23" width="957" height="777" key="CommitChangelistDialog2/0.23.1280.777@0.23.1280.777" timestamp="1588980401950" />
     <state x="459" y="312" key="Github.ShareDialog" timestamp="1588876596236">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
