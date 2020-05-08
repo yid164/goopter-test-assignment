@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import  { Redirect } from 'react-router-dom'
+import { Form, Input, Button, Radio } from 'antd';
+import { useState } from 'react';
+
 
 const UpdateProfile = (props) => {
     const { auth, nickname, first_name, last_name, phone, phone_country_code, currency, points, is_confirm, isConfirmChange,
@@ -9,91 +12,99 @@ const UpdateProfile = (props) => {
         num_gift_cards, numGiftCardsChange,
         nicknameChange, firstNameChange, lastNameChange, phoneChange, phoneCountryCodeChange, currencyChange, pointsChange,
         handleClick, handleRefresh } = props;
+
+    const [form] = Form.useForm();
+    const [formLayout] = useState('horizontal');
+
+
+    const formItemLayout =
+        formLayout === 'horizontal'
+            ? {
+                labelCol: {
+                    span: 4,
+                },
+                wrapperCol: {
+                    span: 14,
+                },
+            }
+            : null;
+    const buttonItemLayout =
+        formLayout === 'horizontal'
+            ? {
+                wrapperCol: {
+                    span: 14,
+                    offset: 4,
+                },
+            }
+            : null;
+
     if (!auth){
         return <Redirect to='/login'  />
     } else {
         return (
             <div>
-                <div>
-                    <h3>Welcome, {first_name}, {last_name}</h3>
-                </div>
-                <div>
-                    <label>Nick Name: </label>
-                    <input value={nickname} onChange={nicknameChange}/>
-                </div>
-                <div>
-                    <label>First Name: </label>
-                    <input value={first_name} onChange={firstNameChange}/>
-                </div>
-                <div>
-                    <label>Last Name: </label>
-                    <input value={last_name} onChange={lastNameChange}/>
-                </div>
-                <div>
-                    <label>Phone Number: </label>
-                    <input value={phone} onChange={phoneChange}/>
-                </div>
-
-                <div>
-                    <label>Phone Country Code: </label>
-                    <input value={phone_country_code} onChange={phoneCountryCodeChange}/>
-                </div>
-
-                <div>
-                    <label>Currency: </label>
-                    <input value={currency} onChange={currencyChange}/>
-                </div>
-
-                <div>
-                    <label>Points: </label>
-                    <input value={points} onChange={pointsChange}/>
-                </div>
-
-                <div>
-                    <label>Confirm: </label>
-                    <input value={is_confirm} onChange={isConfirmChange}/>
-                </div>
-
-                <div>
-                    <label>Password Set: </label>
-                    <input value={is_password_set} onChange={isPasswordSetChange}/>
-                </div>
-
-                <div>
-                    <label>Default Address: </label>
-                    <input value={defaultAddress} onChange={defaultAddressChange}/>
-                </div>
-
-                <div>
-                    <label>Has Payment Password: </label>
-                    <input value={has_payment_password} onChange={hasPaymentPasswordChange}/>
-                </div>
-
-                <div>
-                    <label>Bookmarks: </label>
-                    <form>
-                        <div>
-                            <label>Store</label>
-                            <input value={bookmark_store} onChange={bookmarkStoreChange}/>
-                        </div>
-                        <div>
-                            <label>Group Sale</label>
-                            <input value={bookmark_group_sale} onChange={bookmarkGroupSaleChange}/>
-                        </div>
-                        <div>
-                            <label>Product</label>
-                            <input value={bookmark_product} onChange={bookmarkProductChange}/>
-                        </div>
-                    </form>
-                </div>
-
-                <div>
-                    <label>Number of Gift Card: </label>
-                    <input value={num_gift_cards} onChange={numGiftCardsChange}/>
-                </div>
-
-                <button onClick={handleClick}>Update</button>
-                <button onClick={handleRefresh}>Refresh</button>
+                <Form
+                    {...formItemLayout}
+                    layout={formLayout}
+                    form={form}
+                    initialValues={{
+                        layout: formLayout,
+                    }}
+                >
+                    <Form.Item label="Personal:" name="layout">
+                        Hello {nickname}
+                    </Form.Item>
+                    <Form.Item label="Nick Name">
+                        <Input placeholder="input placeholder" value={nickname} onChange={nicknameChange} />
+                    </Form.Item>
+                    <Form.Item label="First Name">
+                        <Input placeholder="input placeholder" value={first_name} onChange={firstNameChange}/>
+                    </Form.Item>
+                    <Form.Item label="Last Name">
+                        <Input placeholder="input placeholder" value={last_name} onChange={lastNameChange}/>
+                    </Form.Item>
+                    <Form.Item label="Phone Number">
+                        <Input placeholder="input placeholder" value={phone} onChange={phoneChange}/>
+                    </Form.Item>
+                    <Form.Item label="Country Code:">
+                        <Input placeholder="input placeholder" value={phone_country_code} onChange={phoneCountryCodeChange}/>
+                    </Form.Item>
+                    <Form.Item label="Currency">
+                        <Input placeholder="input placeholder" value={currency} onChange={currencyChange}/>
+                    </Form.Item>
+                    <Form.Item label="Points">
+                        <Input placeholder="input placeholder" value={points} onChange={pointsChange}/>
+                    </Form.Item>
+                    <Form.Item label="Confirmed">
+                        <Input placeholder="input placeholder" value={is_confirm} onChange={isConfirmChange}/>
+                    </Form.Item>
+                    <Form.Item label="Password Set">
+                        <Input placeholder="input placeholder" value={is_password_set} onChange={isPasswordSetChange}/>
+                    </Form.Item>
+                    <Form.Item label="Address">
+                        <Input placeholder="input placeholder" value={defaultAddress} onChange={defaultAddressChange}/>
+                    </Form.Item>
+                    <Form.Item label="PaymentPass">
+                        <Input placeholder="input placeholder" value={has_payment_password} onChange={hasPaymentPasswordChange}/>
+                    </Form.Item>
+                    <Form.Item label="Bookmarks:">
+                        <Form.Item label="Store">
+                            <Input placeholder="input placeholder" value={bookmark_store} onChange={bookmarkStoreChange}/>
+                        </Form.Item>
+                        <Form.Item label="Group Sale">
+                            <Input placeholder="input placeholder" value={bookmark_group_sale} onChange={bookmarkGroupSaleChange}/>
+                        </Form.Item>
+                        <Form.Item label="Product">
+                            <Input placeholder="input placeholder" value={bookmark_product} onChange={bookmarkProductChange}/>
+                        </Form.Item>
+                    </Form.Item>
+                    <Form.Item label="Gift Cards">
+                        <Input placeholder="input placeholder" value={num_gift_cards} onChange={numGiftCardsChange}/>
+                    </Form.Item>
+                    <Form.Item {...buttonItemLayout}>
+                        <Button type="primary" onClick={handleClick}>Submit</Button>
+                    </Form.Item>
+                </Form>
             </div>
         );
     }

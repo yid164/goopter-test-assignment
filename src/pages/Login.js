@@ -1,8 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import  { Redirect } from 'react-router-dom'
-import {postTokenAndAccessSecret}from '../api/getData'
+import { Form, Input, Button, Checkbox } from 'antd';
+import 'antd/dist/antd.css';
 
+
+const layout = {
+    labelCol: {
+        span: 8,
+    },
+    wrapperCol: {
+        span: 7,
+    },
+};
+const tailLayout = {
+    wrapperCol: {
+        offset: 8,
+        span: 7,
+    },
+};
+
+const onFinish = values => {
+    console.log('Success:', values);
+};
+
+const onFinishFailed = errorInfo => {
+    console.log('Failed:', errorInfo);
+};
 
 const Login = (props) => {
     const { auth, username, password, usernameChange, passwordChange, handleClick } = props;
@@ -10,20 +34,74 @@ const Login = (props) => {
         return <Redirect to='/update'  />
     } else {
         return (
-            <div>
-                <div>
-                    <h3>Please Log in</h3>
-                </div>
-                <div>
-                    <label>Username: </label>
-                    <input value={username} onChange={usernameChange}/>
-                </div>
-                <div>
-                    <label>Password: </label>
-                    <input value={password} onChange={passwordChange}/>
-                </div>
-                <button onClick={handleClick}>Submit</button>
-            </div>
+            <Form
+                {...layout}
+                name="basic"
+                initialValues={{
+                    remember: true,
+                }}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+                title="Please Log In"
+            >
+                <Form.Item>
+                    Please Log In
+                </Form.Item>
+                <Form.Item
+                    label="Username"
+                    name="username"
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your username!',
+                        },
+                    ]}
+                    value={username}
+                    onChange={usernameChange}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
+                    label="Password"
+                    name="password"
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your password!',
+                        },
+                    ]}
+                    value={password}
+                    onChange={passwordChange}
+
+                >
+                    <Input.Password />
+                </Form.Item>
+                <Form.Item {...tailLayout} name="remember" valuePropName="checked">
+                    <Checkbox>Remember me</Checkbox>
+                </Form.Item>
+
+                <Form.Item {...tailLayout}>
+                    <Button type="primary" htmlType="submit" onClick={handleClick} >
+                        Submit
+                    </Button>
+                </Form.Item>
+            </Form>
+
+            // <div>
+            //     <div>
+            //         <h3>Please Log in</h3>
+            //     </div>
+            //     <div>
+            //         <label>Username: </label>
+            //         <input value={username} onChange={usernameChange}/>
+            //     </div>
+            //     <div>
+            //         <label>Password: </label>
+            //         <input value={password} onChange={passwordChange}/>
+            //     </div>
+            //     <button onClick={handleClick}>Submit</button>
+            // </div>
         );
     }
 };

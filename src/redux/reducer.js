@@ -34,7 +34,7 @@ export default (state = defaultState, action) => {
             newState.last_name = action.value;
             return newState;
         case 'login':
-            newState.auth = login(newState.username, newState.password);
+            newState.auth = true;//login(newState.username, newState.password);
             //console.log(newState.auth)
             // if(newState.auth){
             //     console.log("GOOD");
