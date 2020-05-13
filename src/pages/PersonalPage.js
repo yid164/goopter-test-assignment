@@ -64,7 +64,7 @@ const UpdateProfile = (props) => {
                         <Input placeholder="input placeholder" value={last_name} onChange={lastNameChange}/>
                     </Form.Item>
                     <Form.Item label="Phone Number">
-                        <Input placeholder="input placeholder" value={phone} onChange={phoneChange}/>
+                        <Input placeholder={phone} value={phone} onChange={phoneChange}/>
                     </Form.Item>
                     <Form.Item label="Country Code:">
                         <Input placeholder="input placeholder" value={phone_country_code} onChange={phoneCountryCodeChange}/>
