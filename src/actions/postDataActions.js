@@ -1,15 +1,22 @@
-import {FETCH_USER_INFO, UPDATE_USER} from "./types";
-import React from "react";
+import {UPDATE_USER} from "./types";
 import OAuth from "oauth-1.0a";
 import crypto from "crypto";
 import $ from "jquery";
 
+/**
+ * Redux function for updating the data (nick_name and first_name)
+ * @param updateData
+ * @returns {function(...[*]=)}
+ */
 export const updateData = updateData => async dispatch =>{
+
+    // url
     const URL = "https://api-qa.goopter.com/api/rest/v7/customerinfo";
 
+    // request method
     const method = "POST";
 
-
+    // init Oath function
     const oauth = new OAuth({
         consumer: {
             key: '8fb7ec71f8b4e1f2ec28d2f8c3f7785a',
@@ -24,18 +31,19 @@ export const updateData = updateData => async dispatch =>{
         },
     });
 
-
+    // get storage access
     let token = {
         key: await localStorage.getItem("token"),
         secret: await localStorage.getItem("key"),
     };
 
-
+    // auth request
     let auth_request = {
         url: URL,
         method: method
     };
 
+    // ajax function to POST the data, and reload the window
     $.ajax({
         url: URL,
         type: method,

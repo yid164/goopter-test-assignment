@@ -3,13 +3,19 @@ import crypto from "crypto";
 import OAuth  from "oauth-1.0a";
 import $ from 'jquery';
 
+/**
+ * Redux function or fetching users information
+ * @returns {function(...[*]=)}
+ */
 export const fetchUserInfo = () => async dispatch => {
 
+    // URL
     const URL = "https://api-qa.goopter.com/api/rest/v7/customerinfo";
 
+    // Method
     const method = "GET";
 
-
+    // OAuth initialize
     const oauth = new OAuth({
         consumer: {
             key: '8fb7ec71f8b4e1f2ec28d2f8c3f7785a',
@@ -24,17 +30,19 @@ export const fetchUserInfo = () => async dispatch => {
         },
     });
 
-
+    // Get access token from the local storage
     let token = {
         key: await localStorage.getItem("token"),
         secret: await localStorage.getItem("key"),
     };
 
+    // auth request
     let auth_request = {
         url: URL,
         method: method
     };
 
+    // ajax function, get user_info from records
     $.ajax({
         url: URL,
         type: method,
@@ -47,7 +55,7 @@ export const fetchUserInfo = () => async dispatch => {
         },
         success: function (json) {
             if(json.RC === 200){
-                //alert("infomation got");
+                //alert("information got");
                 dispatch({
                     type: FETCH_USER_INFO,
                     user_info: json.records
