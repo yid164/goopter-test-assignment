@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0e2e4dc-042d-477d-b43b-731c49ec13ff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/containters/Login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containters/PersonalPages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actions/loginActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/actions/types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reducers/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reducers/loginReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PersonalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PersonalPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/getData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/getData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PersonalPages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PersonalPages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +95,7 @@
       <workItem from="1588907320850" duration="4901000" />
       <workItem from="1588912498276" duration="29111000" />
       <workItem from="1588981038630" duration="672000" />
-      <workItem from="1589323620900" duration="8805000" />
+      <workItem from="1589323620900" duration="29626000" />
     </task>
     <task id="LOCAL-00001" summary="make a login form, but no functions">
       <created>1588877720502</created>
@@ -138,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588980823464</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Updated new login page in the component folder">
+      <created>1589346099328</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1589346099328</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,7 +167,8 @@
     <MESSAGE value="Handled the login, but the API might have problem, I could not get the user information after I have the token and secret." />
     <MESSAGE value="Set up CSS" />
     <MESSAGE value="Finished Front end" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Front end" />
+    <MESSAGE value="Updated new login page in the component folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated new login page in the component folder" />
   </component>
   <component name="WindowStateProjectService">
     <state x="240" y="77" key="#ESLint" timestamp="1588913129951">
@@ -163,29 +179,29 @@
       <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state x="240" y="77" key="#Inspections/0.23.1280.777@0.23.1280.777" timestamp="1588910422809" />
-    <state x="161" y="23" width="957" height="777" key="CommitChangelistDialog2" timestamp="1589346063850">
+    <state x="161" y="23" width="957" height="777" key="CommitChangelistDialog2" timestamp="1589346099078">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state x="161" y="23" width="957" height="777" key="CommitChangelistDialog2/0.23.1280.777@0.23.1280.777" timestamp="1589346063850" />
+    <state x="161" y="23" width="957" height="777" key="CommitChangelistDialog2/0.23.1280.777@0.23.1280.777" timestamp="1589346099078" />
     <state x="459" y="312" key="Github.ShareDialog" timestamp="1588876596236">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state x="459" y="312" key="Github.ShareDialog/0.23.1280.777@0.23.1280.777" timestamp="1588876596236" />
-    <state width="1259" height="197" key="GridCell.Tab.0.bottom" timestamp="1588981916089">
+    <state width="1259" height="197" key="GridCell.Tab.0.bottom" timestamp="1589408138541">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state width="1259" height="197" key="GridCell.Tab.0.bottom/0.23.1280.777@0.23.1280.777" timestamp="1588981916089" />
-    <state width="1259" height="197" key="GridCell.Tab.0.center" timestamp="1588981916089">
+    <state width="1259" height="197" key="GridCell.Tab.0.bottom/0.23.1280.777@0.23.1280.777" timestamp="1589408138541" />
+    <state width="1259" height="197" key="GridCell.Tab.0.center" timestamp="1589408138540">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state width="1259" height="197" key="GridCell.Tab.0.center/0.23.1280.777@0.23.1280.777" timestamp="1588981916089" />
-    <state width="1259" height="197" key="GridCell.Tab.0.left" timestamp="1588981916088">
+    <state width="1259" height="197" key="GridCell.Tab.0.center/0.23.1280.777@0.23.1280.777" timestamp="1589408138540" />
+    <state width="1259" height="197" key="GridCell.Tab.0.left" timestamp="1589408138540">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state width="1259" height="197" key="GridCell.Tab.0.left/0.23.1280.777@0.23.1280.777" timestamp="1588981916088" />
-    <state width="1259" height="197" key="GridCell.Tab.0.right" timestamp="1588981916089">
+    <state width="1259" height="197" key="GridCell.Tab.0.left/0.23.1280.777@0.23.1280.777" timestamp="1589408138540" />
+    <state width="1259" height="197" key="GridCell.Tab.0.right" timestamp="1589408138541">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state width="1259" height="197" key="GridCell.Tab.0.right/0.23.1280.777@0.23.1280.777" timestamp="1588981916089" />
+    <state width="1259" height="197" key="GridCell.Tab.0.right/0.23.1280.777@0.23.1280.777" timestamp="1589408138541" />
   </component>
 </project>

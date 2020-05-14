@@ -1,0 +1,3 @@
+export const FETCH_USER_INFO = 'FETCH_USER_INFO'
+export const FETCH_ACCESS = 'FETCH_ACCESS';
+export const UPDATE_USER = 'UPDATE_USER';

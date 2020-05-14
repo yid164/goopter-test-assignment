@@ -16,6 +16,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "request": "^2.36.0"
   },
   "scripts": {
@@ -40,8 +41,10 @@
     ]
   },
   "devDependencies": {
+    "jquery": "^3.5.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "redux-form": "^8.3.5"
+    "redux-form": "^8.3.5",
+    "prop-types": "latest"
   }
 }
