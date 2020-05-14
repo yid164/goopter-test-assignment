@@ -1,11 +1,5 @@
-import {FETCH_USER_INFO} from "./types";
 import {FETCH_ACCESS} from "./types";
-import crypto from "crypto";
-import OAuth  from "oauth-1.0a";
-import $ from 'jquery';
 import React from "react";
-import store from "../store";
-import {Redirect} from "react-router";
 
 
 export const fetchAccess = userInfo => dispatch => {
@@ -29,10 +23,12 @@ export const fetchAccess = userInfo => dispatch => {
                             type: FETCH_ACCESS,
                             email: userInfo.data.email,
                             password: userInfo.data.password,
+                            token: res.records.token,
+                            key: res.records.secret
                         });
                         localStorage.setItem("token", res.records.token);
                         localStorage.setItem("key", res.records.secret);
-                        window.location = ('/');
+                        window.location = ('/page');
 
                     }else {
                         alert("Login Failed");

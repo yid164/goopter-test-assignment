@@ -1,13 +1,13 @@
-import {FETCH_USER_INFO} from "./types";
+import {FETCH_USER_INFO, UPDATE_USER} from "./types";
+import React from "react";
+import OAuth from "oauth-1.0a";
 import crypto from "crypto";
-import OAuth  from "oauth-1.0a";
-import $ from 'jquery';
+import $ from "jquery";
 
-export const fetchUserInfo = () => async dispatch => {
-
+export const updateData = updateData => async dispatch =>{
     const URL = "https://api-qa.goopter.com/api/rest/v7/customerinfo";
 
-    const method = "GET";
+    const method = "POST";
 
 
     const oauth = new OAuth({
@@ -30,6 +30,7 @@ export const fetchUserInfo = () => async dispatch => {
         secret: await localStorage.getItem("key"),
     };
 
+
     let auth_request = {
         url: URL,
         method: method
@@ -38,6 +39,8 @@ export const fetchUserInfo = () => async dispatch => {
     $.ajax({
         url: URL,
         type: method,
+        data: JSON.stringify(updateData),
+        contentType: "application/json",
         headers: oauth.toHeader(oauth.authorize(auth_request, token)),
         error: function (json) {
             setTimeout(function () {
@@ -46,21 +49,23 @@ export const fetchUserInfo = () => async dispatch => {
             return;
         },
         success: function (json) {
-            if(json.RC === 200){
-                //alert("infomation got");
+            let code = json.toString();
+            console.log(code);
+            if(code === "{\"RC\":200}"){
+                alert("Information Updated");
                 dispatch({
-                    type: FETCH_USER_INFO,
-                    user_info: json.records
+                    type: UPDATE_USER,
 
                 });
+                window.location.reload();
             }else {
-                alert(json.RC);
+                alert("Woo, Something wrong here");
+                console.log(JSON.stringify(JSON.parse(json)));
                 setTimeout(function () {
-                    window.location = "/"
+                    window.location.reload();
                 }, 1000);
                 return;
             }
         }.bind(this)
     });
-
 };

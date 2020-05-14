@@ -11,8 +11,8 @@ function App() {
       <Provider store={store}>
           <BrowserRouter>
               <Switch>
-                  <Route path='/login' component={Login}/>
-                  <Route path='/' component={PersonalPages} />
+                  <Route path exact='/' component={Login}/>
+                  <Route path ='/page' component={PersonalPages} />
               </Switch>
           </BrowserRouter>
       </Provider>

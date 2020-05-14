@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { fetchUserInfo } from '../actions/getDataActions'
 import { connect } from "react-redux";
 import 'antd/dist/antd.css';
+import Logout from "./Logout";
+import UpdateForm from "./UpdateForm";
 
 
 class PersonalPages extends React.Component{
@@ -56,11 +58,16 @@ class PersonalPages extends React.Component{
                         <br />
                         <label>{this.props.user_info.country}</label>
                     </div>
-                    <button
-                        type="submit"
-                    >Update</button>
-                    <button>Logout</button>
+                    <div>
+                        <UpdateForm></UpdateForm>
+                    </div>
+                    <div>
+                        <Logout></Logout>
+                    </div>
                 </form>
+
+                <br />
+
             </div>
         )
     }
@@ -68,7 +75,7 @@ class PersonalPages extends React.Component{
 
 PersonalPages.propTypes = {
     fetchUserInfo: PropTypes.func.isRequired,
-    user_info: PropTypes.array.isRequired
+    user_info: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state =>({

@@ -1,10 +1,10 @@
-import  {FETCH_ACCESS} from "../actions/types";
+import {FETCH_ACCESS, UPDATE_USER} from "../actions/types";
 import {FETCH_USER_INFO} from "../actions/types";
 
 const initialState = {
     email: {},
     password:{},
-    user_info:[]
+    user_info:{}
 };
 
 export default function (state = initialState, action) {
@@ -22,6 +22,8 @@ export default function (state = initialState, action) {
                 user_info: action.user_info
 
             };
+        case UPDATE_USER:
+            return state;
         default:
             return state;
     }
