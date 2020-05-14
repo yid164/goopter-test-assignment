@@ -53,11 +53,13 @@ class PersonalPages extends React.Component{
                         <br />
                         <label>{this.props.user_info.currency}</label>
                     </div>
+                    <br />
                     <div>
                         <label>Country</label>
                         <br />
                         <label>{this.props.user_info.country}</label>
                     </div>
+                    <br />
                     <div>
                         <UpdateForm></UpdateForm>
                     </div>
