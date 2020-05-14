@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Login from './components/Login'
-import UpdateProfile from './pages/PersonalPage';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import store from './store';
@@ -13,7 +12,7 @@ function App() {
           <BrowserRouter>
               <Switch>
                   <Route path='/login' component={Login}/>
-                  <Route path="/" component={PersonalPages} />
+                  <Route path='/' component={PersonalPages} />
               </Switch>
           </BrowserRouter>
       </Provider>
