@@ -1,12 +1,19 @@
 import React, {Component} from "react";
 import 'antd/dist/antd.css';
 
+/**
+ * Logout button which is a children component in the personal page
+ */
 class Logout extends Component{
     constructor(props) {
         super(props);
         this.logoutClick = this.logoutClick.bind(this);
     }
 
+    /**
+     * clear the local storage
+     * @param event
+     */
     logoutClick(event){
         event.preventDefault();
         localStorage.clear();

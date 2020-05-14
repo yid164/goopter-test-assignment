@@ -1,9 +1,12 @@
 import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {updateData} from "../actions/postDataActions";
+import { updateData } from "../actions/postDataActions";
 import 'antd/dist/antd.css';
 
+/**
+ * A children component in the Personal Page which for updating user's information
+ */
 class UpdateForm extends Component{
     constructor(props) {
         super(props);
@@ -15,10 +18,18 @@ class UpdateForm extends Component{
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+    /**
+     * update the input
+     * @param event
+     */
     onChange(event) {
         this.setState({ [event.target.name]: event.target.value });
     }
 
+    /**
+     * Submit and call the redux function
+     * @param event
+     */
     onSubmit(event) {
         event.preventDefault();
 

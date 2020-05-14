@@ -6,17 +6,17 @@ import 'antd/dist/antd.css';
 import Logout from "./Logout";
 import UpdateForm from "./UpdateForm";
 
-
+/**
+ * Personal page component
+ */
 class PersonalPages extends React.Component{
 
-    constructor(props) {
-        super(props);
-    }
-
+    /**
+     * Call the redux function to directly show the information
+     */
     componentWillMount(){
         this.props.fetchUserInfo();
     }
-
 
     render() {
         console.log(this.props.user_info);
@@ -78,6 +78,11 @@ PersonalPages.propTypes = {
     user_info: PropTypes.object.isRequired
 };
 
+/**
+ * Map function to distribute the user info
+ * @param state
+ * @returns {{user_info: Validator<NonNullable<Object>> | {}}}
+ */
 const mapStateToProps = state =>({
     user_info: state.login.user_info,
 });

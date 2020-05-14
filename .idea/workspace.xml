@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0e2e4dc-042d-477d-b43b-731c49ec13ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/actions/getDataActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/getDataActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/loginActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/loginActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/postDataActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/postDataActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Logout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PersonalPages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PersonalPages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UpdateForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UpdateForm.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +85,7 @@
       <workItem from="1588907320850" duration="4901000" />
       <workItem from="1588912498276" duration="29111000" />
       <workItem from="1588981038630" duration="672000" />
-      <workItem from="1589323620900" duration="53419000" />
+      <workItem from="1589323620900" duration="53808000" />
     </task>
     <task id="LOCAL-00001" summary="make a login form, but no functions">
       <created>1588877720502</created>
@@ -178,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589448145996</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added comments to actions">
+      <created>1589448668434</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1589448668434</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,7 +204,8 @@
     <MESSAGE value="Get information has been done" />
     <MESSAGE value="Basic covered all the requirements" />
     <MESSAGE value="Deleted unused files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleted unused files" />
+    <MESSAGE value="Added comments to actions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added comments to actions" />
   </component>
   <component name="WindowStateProjectService">
     <state x="240" y="77" key="#ESLint" timestamp="1588913129951">
@@ -212,10 +220,10 @@
       <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state x="378" y="165" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1280.777@0.23.1280.777" timestamp="1589435033658" />
-    <state x="161" y="23" width="957" height="777" key="CommitChangelistDialog2" timestamp="1589448145724">
+    <state x="161" y="23" width="957" height="777" key="CommitChangelistDialog2" timestamp="1589449046874">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state x="161" y="23" width="957" height="777" key="CommitChangelistDialog2/0.23.1280.777@0.23.1280.777" timestamp="1589448145724" />
+    <state x="161" y="23" width="957" height="777" key="CommitChangelistDialog2/0.23.1280.777@0.23.1280.777" timestamp="1589449046874" />
     <state x="459" y="312" key="Github.ShareDialog" timestamp="1588876596236">
       <screen x="0" y="23" width="1280" height="777" />
     </state>

@@ -4,29 +4,38 @@ import { fetchAccess } from '../actions/loginActions'
 import { connect } from "react-redux";
 import 'antd/dist/antd.css';
 
-
+/**
+ * Login component, a individual component for users login
+ */
 class Login extends React.Component{
 
-
+    /**
+     * Init
+     * @param props
+     */
     constructor(props) {
         super(props);
         this.state = {
             email: "",
             password: "",
-            token: "",
-            key: ""
         };
-        // this.handleSubmit = this.handleSubmit.bind(this);
-        // this.assignEmail = this.assignEmail.bind(this);
-        // this.assignPassword = this.assignPassword.bind(this);
+
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+    /**
+     * on change function to change the input
+     * @param e
+     */
     onChange(e){
         this.setState({[e.target.name]: e.target.value.toString()});
     }
 
+    /**
+     * Submit function to call the redux function
+     * @param e
+     */
     onSubmit(e){
         e.preventDefault();
         let userInfo = {
@@ -38,8 +47,10 @@ class Login extends React.Component{
         this.props.fetchAccess(userInfo);
     }
 
-
-
+    /**
+     * Rendering
+     * @returns {*}
+     */
     render() {
         return(
             <div>
