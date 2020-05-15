@@ -36,29 +36,6 @@ class PersonalPages extends React.Component{
                         <label>{this.props.user_info.nick_name}</label>
                     </div>
                     <br />
-                    <div>
-                        <label>Phone</label>
-                        <br />
-                        <label>{this.props.user_info.phone}</label>
-                    </div>
-                    <br />
-                    <div>
-                        <label>Phone Country Code</label>
-                        <br />
-                        <label>{this.props.user_info.phone_country_code}</label>
-                    </div>
-                    <br />
-                    <div>
-                        <label>Currency</label>
-                        <br />
-                        <label>{this.props.user_info.currency}</label>
-                    </div>
-                    <br />
-                    <div>
-                        <label>Country</label>
-                        <br />
-                        <label>{this.props.user_info.country}</label>
-                    </div>
                     <br />
                     <div>
                         <UpdateForm></UpdateForm>

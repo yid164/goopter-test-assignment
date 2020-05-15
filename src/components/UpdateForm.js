@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { updateData } from "../actions/postDataActions";
 import 'antd/dist/antd.css';
 
+
 /**
  * A children component in the Personal Page which for updating user's information
  */
@@ -12,7 +13,11 @@ class UpdateForm extends Component{
         super(props);
         this.state = {
             new_first_name : '',
-            new_nick_name : ''
+            new_nick_name : '',
+            errors:{
+                new_first_name: '',
+                new_nick_name: ''
+            }
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -23,7 +28,30 @@ class UpdateForm extends Component{
      * @param event
      */
     onChange(event) {
-        this.setState({ [event.target.name]: event.target.value });
+        event.preventDefault();
+        const {name, value} = event.target;
+        const format = RegExp(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/);
+        let errors = this.state.errors;
+        switch (name) {
+            case 'new_first_name':
+                errors.new_first_name =
+                    value.length < 1 || format.test(value)
+                        ? 'Please enter valid first name!'
+                        :'';
+                break;
+            case 'new_nick_name':
+                errors.new_nick_name =
+                    value.length < 1 || format.test(value)
+                        ? 'Please enter valid nick name!'
+                        :'';
+                break;
+            default:
+                break;
+
+        }
+        this.setState({errors, [name]:value}, ()=>{
+            console.log(errors)
+        });
     }
 
     /**
@@ -33,13 +61,21 @@ class UpdateForm extends Component{
     onSubmit(event) {
         event.preventDefault();
 
-        const data = {
-            first_name: this.state.new_first_name,
-            nick_name: this.state.new_nick_name
-        };
-
-        this.props.updateData(data);
+        if(validateForm(this.state.errors))
+        {
+            console.log('Valid From');
+            const data = {
+                first_name: this.state.new_first_name,
+                nick_name: this.state.new_nick_name
+            };
+            this.props.updateData(data);
+        }else{
+            alert("Please enter correct Nick Name or First Name");
+            console.log('Invalid From');
+        }
     }
+
+
 
     render() {
         return(
@@ -77,6 +113,15 @@ class UpdateForm extends Component{
 }
 UpdateForm.propTypes = {
     updateData: PropTypes.func.isRequired
+};
+
+const validateForm =(errors)=> {
+    let valid = true;
+    Object.values(errors).forEach(
+        (val) => val.length > 0 && (valid=false)
+    );
+    console.log(valid);
+    return valid;
 };
 
 export default connect(null, { updateData })(UpdateForm);

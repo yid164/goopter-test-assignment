@@ -62,7 +62,7 @@ export const fetchUserInfo = () => async dispatch => {
 
                 });
             }else {
-                alert(json.RC);
+                alert("Invalid token");
                 setTimeout(function () {
                     window.location = "/"
                 }, 1000);

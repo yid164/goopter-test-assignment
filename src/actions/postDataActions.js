@@ -66,13 +66,21 @@ export const updateData = updateData => async dispatch =>{
 
                 });
                 window.location.reload();
-            }else {
-                alert("Woo, Something wrong here");
+            }else if (code === "{\"RC\":400}"){
+                alert("Invalid token");
                 console.log(JSON.stringify(JSON.parse(json)));
                 setTimeout(function () {
-                    window.location.reload();
+                    window.location = '/';
                 }, 1000);
-                return;
+                window.location = '/';
+
+            }else{
+                alert("RC Error");
+                console.log(JSON.stringify(JSON.parse(json)));
+                setTimeout(function () {
+                    window.location = '/';
+                }, 1000);
+                window.location = '/';
             }
         }.bind(this)
     });

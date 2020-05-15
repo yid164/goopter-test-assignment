@@ -19,7 +19,7 @@ export const fetchAccess = userInfo => dispatch => {
         })
         .then(res => res.json())
         .then(
-            //error=>{console.log(error)},
+            // error=>{console.log(error)},
             res=> {
                 if(res.RC === 200){
                     alert("Login Success");
@@ -34,8 +34,11 @@ export const fetchAccess = userInfo => dispatch => {
                     localStorage.setItem("key", res.records.secret);
                     window.location = ('/page');
 
-                }else {
-                    alert("Login Failed");
+                }else if(res.RC === 401){
+                    alert("Token is not valid");
+                }
+                else {
+                    alert("Please Enter Valid Email/Password");
                 }
 
         });
