@@ -59,6 +59,9 @@ export const updateData = updateData => async dispatch =>{
         success: function (json) {
             let code = json.toString();
             console.log(code);
+            /**
+             * If the RC equals to 200, update successful
+             */
             if(code === "{\"RC\":200}"){
                 alert("Information Updated");
                 dispatch({
@@ -66,20 +69,37 @@ export const updateData = updateData => async dispatch =>{
 
                 });
                 window.location.reload();
-            }else if (code === "{\"RC\":400}"){
-                alert("Invalid token");
-                console.log(JSON.stringify(JSON.parse(json)));
-                setTimeout(function () {
-                    window.location = '/';
-                }, 1000);
-                window.location = '/';
 
-            }else{
-                alert("RC Error");
+            }
+            /**
+             * If the RC equals to 400 which means the request is not valid
+             * Return the invalid input, and reload the window
+             */
+            else if (code === "{\"RC\":400}"){
+                alert("Invalid Input");
+                window.location.reload();
+
+            }
+
+            /**
+             * If the RC equals to 401 which means the token is invalid, clear the localstorage and back to login page
+             */
+            else if(code === "{\"RC\":401}"){
+                alert("Invalid Token");
+                localStorage.clear();
+                window.location = '/';
+            }
+            /**
+             * This fetch for taking the other issue, console log it and back to the login page
+             */
+            else{
+                alert("Other Issue");
                 console.log(JSON.stringify(JSON.parse(json)));
                 setTimeout(function () {
+                    localStorage.clear();
                     window.location = '/';
                 }, 1000);
+                localStorage.clear();
                 window.location = '/';
             }
         }.bind(this)

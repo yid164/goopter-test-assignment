@@ -54,6 +54,9 @@ export const fetchUserInfo = () => async dispatch => {
             return;
         },
         success: function (json) {
+            /**
+             * If the RC equals to 200, then get the correct information
+             */
             if(json.RC === 200){
                 //alert("information got");
                 dispatch({
@@ -61,8 +64,21 @@ export const fetchUserInfo = () => async dispatch => {
                     user_info: json.records
 
                 });
-            }else {
+            }
+            /**
+             * If the RC equals to 401 which means the token is invalid. Clean the localStorage, and back to login
+             */
+            else if(json.RC ===401){
                 alert("Invalid token");
+                localStorage.clear();
+                window.location = "/"
+            }
+            /**
+             * For the other issues, this situation commonly on the timed out, which means the localStorage has been cleared
+             * Then back to the login
+             */
+            else {
+                alert("");
                 setTimeout(function () {
                     window.location = "/"
                 }, 1000);

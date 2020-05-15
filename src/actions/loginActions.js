@@ -21,6 +21,9 @@ export const fetchAccess = userInfo => dispatch => {
         .then(
             // error=>{console.log(error)},
             res=> {
+                /**
+                 * If the RC equals to 200, success and jump to page
+                 */
                 if(res.RC === 200){
                     alert("Login Success");
                     dispatch({
@@ -34,9 +37,17 @@ export const fetchAccess = userInfo => dispatch => {
                     localStorage.setItem("key", res.records.secret);
                     window.location = ('/page');
 
-                }else if(res.RC === 401){
-                    alert("Token is not valid");
                 }
+                /**
+                 * If the RC equals to 401 which means the token is invalid, try to clear the localstorage
+                 */
+                else if(res.RC === 401){
+                    alert("Token is not valid");
+                    localStorage.clear();
+                }
+                /**
+                 * Other issue
+                 */
                 else {
                     alert("Please Enter Valid Email/Password");
                 }
