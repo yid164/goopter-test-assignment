@@ -63,14 +63,38 @@
        
     4. I have updated component in updateFrom, and LoginFrom, which could avoid user input error value such as special characters or empty
        value, for doing this, when the user input the invalid value in the textfields, the frontend would detect it and avoid 
-       they destroy API
+       they destroy API.
        
-    5. Before I am doing this, I have no expereience on the OAuth and Ajax, but I learned it from thier websites.
+    5. For some example I could not show, for example, once the token is invalid, the personal page will return to login page.
+       Update form is only valid for the token is valid, in this kind of boundary cases, I might not be able to show them.
+       
+    6. Before I am doing this, I have no expereience on the OAuth and Ajax, but I learned it from thier websites.
     
-    6. For doing this, I estimatly spent 60 hours (learning and implementations), because I was not really familiar with React and 
+    7. For doing this, I estimatly spent 60 hours (learning and implementations), because I was not really familiar with React and 
        Redux, I believe I could spend less if I use Vue.js:). In this assignment, I learned a lot.
+
+## Michael's Question: 
+
+    1. Set an invalid token and send API request (update customer info etc.), show a dialog “Invalid token” and the error 
+       code from API response due to invalid token
        
+    2. Send API request with valid token but invalid fields(use update customer info api with wrong field names), should 
+       expect API RC error code in this, show a dialog invalid API response, and print out the error code
        
+### My Answer: 
+
+    You could check the code (Handling the errors): 
+       i. /actionss/loginActions.js (line 21 to 41) 
+       ii. /actions/postDataActions.js (line 53 to 83)
+       iii. /actions/getDataActions.js (line 50 to 70)
+       iv. /components/UpdateFrom.js (line 11 to 55)
+       
+    I updated all the situations which indicates on your assginment problems, also, when the token is invalid, it will be a 
+    dialog pop up for indicating the error and back to the login page. 
+    
+    Also, I impelemented some error handlings in the components, for detecting the error in the frontend, so API could be protected.
+       
+    
 ## How to run it
 
 Before you run it, please make sure your have npm or yarn environment
