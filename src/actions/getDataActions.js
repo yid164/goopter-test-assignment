@@ -32,8 +32,8 @@ export const fetchUserInfo = () => async dispatch => {
 
     // Get access token from the local storage
     let token = {
-        key: await localStorage.getItem("token"),
-        secret: await localStorage.getItem("key"),
+        key:  localStorage.getItem("token"),
+        secret: localStorage.getItem("key"),
     };
 
     // auth request
@@ -42,47 +42,55 @@ export const fetchUserInfo = () => async dispatch => {
         method: method
     };
 
+    let RC = 0;
+
     // ajax function, get user_info from records
     $.ajax({
         url: URL,
         type: method,
         headers: oauth.toHeader(oauth.authorize(auth_request, token)),
         error: function (json) {
-            setTimeout(function () {
+            /**
+             * when the status text is error which means the API refused the token and key (401)
+             * Then, come back to login
+             */
+            if(json.statusText === 'error'){
+                alert("Invalid Token");
+                localStorage.clear();
                 window.location = "/"
-            }, 1000);
-            return;
+            }else {
+                setTimeout(function () {
+                    alert("Another issue happened");
+                    localStorage.clear();
+                    window.location = '/';
+                })
+            }
         },
         success: function (json) {
             /**
              * If the RC equals to 200, then get the correct information
              */
             if(json.RC === 200){
-                //alert("information got");
                 dispatch({
                     type: FETCH_USER_INFO,
                     user_info: json.records
 
                 });
             }
+
             /**
-             * If the RC equals to 401 which means the token is invalid. Clean the localStorage, and back to login
+             * When the API response is 401, then go back to login
              */
-            else if(json.RC ===401){
-                alert("Invalid token");
+            else if(json.RC === 401){
                 localStorage.clear();
-                window.location = "/"
+                window.location = '/';
             }
             /**
              * For the other issues, this situation commonly on the timed out, which means the localStorage has been cleared
              * Then back to the login
              */
             else {
-                alert("");
-                setTimeout(function () {
-                    window.location = "/"
-                }, 1000);
-                return;
+                alert("Another Issue Happened");
             }
         }.bind(this)
     });

@@ -51,10 +51,20 @@ export const updateData = updateData => async dispatch =>{
         contentType: "application/json",
         headers: oauth.toHeader(oauth.authorize(auth_request, token)),
         error: function (json) {
-            setTimeout(function () {
-                window.location = "/"
-            }, 1000);
-            return;
+            /**
+             * when update the status text is error which means the API refused the token and key (401)
+             * Then, come back to login
+             */
+            if(json.statusText === 'error'){
+                alert("Invalid Token");
+                window.location = "/";
+                localStorage.clear();
+            }else {
+                setTimeout(function () {
+                    window.location = '/';
+                    localStorage.clear();
+                })
+            }
         },
         success: function (json) {
             let code = json.toString();
